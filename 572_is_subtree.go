@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
@@ -32,28 +30,28 @@ func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
 	}
 }
 
-func main() {
-	root := TreeNode{
-		Val: 3,
-		Left: &TreeNode{
-			Val:  4,
-			Left: &TreeNode{Val: 1},
-			Right: &TreeNode{ // the subRoot
-				Val: 2,
-				Left: &TreeNode{
-					Val: 0,
-				},
-			},
-		},
-		Right: &TreeNode{
-			Val: 5,
-		},
-	}
-	subRoot := TreeNode{
-		Val: 2,
-		Left: &TreeNode{
-			Val: 0,
-		},
-	}
-	fmt.Println(isSubtree(&root, &subRoot))
-}
+// func main() {
+// 	root := TreeNode{
+// 		Val: 3,
+// 		Left: &TreeNode{
+// 			Val:  4,
+// 			Left: &TreeNode{Val: 1},
+// 			Right: &TreeNode{ // the subRoot
+// 				Val: 2,
+// 				Left: &TreeNode{
+// 					Val: 0,
+// 				},
+// 			},
+// 		},
+// 		Right: &TreeNode{
+// 			Val: 5,
+// 		},
+// 	}
+// 	subRoot := TreeNode{
+// 		Val: 2,
+// 		Left: &TreeNode{
+// 			Val: 0,
+// 		},
+// 	}
+// 	fmt.Println(isSubtree(&root, &subRoot))
+// }
