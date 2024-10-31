@@ -12,31 +12,24 @@ func areIdentical(root *TreeNode, subRoot *TreeNode) bool {
 	if root == nil || subRoot == nil {
 		return root == subRoot // Check for both of them being nil
 	}
-	return root.Val == subRoot.Val &&
-		areIdentical(root.Left, subRoot.Left) &&
-		areIdentical(root.Right, subRoot.Right)
+
+	if root.Val == subRoot.Val {
+		return areIdentical(root.Left, subRoot.Left) && areIdentical(root.Right, subRoot.Right)
+	} else {
+		return false
+	}
 }
 
 func isSubtree(root *TreeNode, subRoot *TreeNode) bool {
-	var flag bool
-
-	var walkTree func(root *TreeNode)
-	walkTree = func(root *TreeNode) {
-		if root == nil {
-			return
-		}
-
-		flag = flag || areIdentical(root, subRoot)
-		flag = flag || areIdentical(root.Left, subRoot)
-		flag = flag || areIdentical(root.Right, subRoot)
-
-		walkTree(root.Right)
-		walkTree(root.Left)
+	if root == nil {
+		return false
 	}
 
-	walkTree(root)
-
-	return flag
+	if areIdentical(root, subRoot) {
+		return true
+	} else {
+		return isSubtree(root.Left, subRoot) || isSubtree(root.Right, subRoot)
+	}
 }
 
 func main() {
@@ -45,7 +38,7 @@ func main() {
 		Left: &TreeNode{
 			Val:  4,
 			Left: &TreeNode{Val: 1},
-			Right: &TreeNode{
+			Right: &TreeNode{ // the subRoot
 				Val: 2,
 				Left: &TreeNode{
 					Val: 0,
