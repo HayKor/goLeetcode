@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func findErrorNums(nums []int) []int {
 	var doubled, notPresent int
 
@@ -29,9 +25,9 @@ func findErrorNums(nums []int) []int {
 	return []int{doubled, notPresent}
 }
 
-func main() {
-	fmt.Println(findErrorNums([]int{1, 2, 2, 4, 5, 6}))
-	fmt.Println(findErrorNums([]int{3, 2, 3, 4, 6, 5}))
-	fmt.Println(findErrorNums([]int{1, 1}))
-	fmt.Println(findErrorNums([]int{3, 3, 1}))
-}
+// func main() {
+// 	fmt.Println(findErrorNums([]int{1, 2, 2, 4, 5, 6}))
+// 	fmt.Println(findErrorNums([]int{3, 2, 3, 4, 6, 5}))
+// 	fmt.Println(findErrorNums([]int{1, 1}))
+// 	fmt.Println(findErrorNums([]int{3, 3, 1}))
+// }
